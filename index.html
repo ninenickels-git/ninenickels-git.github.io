@@ -1,47 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DimeSack.com | Premium Domain For Sale</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DimeSack.com - Premium Domain For Sale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #f5f0e8;
+      min-height: 100vh;
+    }
+
+    /* Top banner */
+    .top-banner {
+      background: linear-gradient(180deg, #96ad8d 0%, #a4c490 40%, #b5d898 100%);
+      padding: 0;
+      height: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .top-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80'%3E%3Cellipse cx='30' cy='80' rx='45' ry='55' fill='%234a8c2a' opacity='0.6'/%3E%3Cellipse cx='90' cy='80' rx='40' ry='50' fill='%232d5a1b' opacity='0.5'/%3E%3Cellipse cx='60' cy='80' rx='50' ry='60' fill='%236ab830' opacity='0.3'/%3E%3C/svg%3E") repeat-x bottom;
+    }
+    .leaf-left, .leaf-right {
+      position: absolute;
+      top: 0;
+      width: 160px;
+      height: 80px;
+      overflow: hidden;
+    }
+    .leaf-left { left: 0; }
+    .leaf-right { right: 0; transform: scaleX(-1); }
+    .leaf-left svg, .leaf-right svg { width: 100%; height: 100%; }
+
+    /* Bottom banner */
+    .bottom-banner {
+      background: linear-gradient(180deg, #b5d898 0%, #a4c490 50%, #96ad8d 100%);
+      height: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Main content */
+    .main {
+      background: #fff;
+      max-width: 520px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+
+    /* Logo placeholder */
+    .logo-placeholder {
+      width: 300px;
+      height: 120px;
+      margin: 0 auto;
+      background: #e8f0d8;
+      border: 3px dashed #6ab830;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6ab830;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .logo-placeholder small {
+      font-size: 11px;
+      font-weight: 400;
+      color: #999;
+      display: block;
+    }
+
+    /* Logo area */
+    .logo-section {
+      background: linear-gradient(180deg, #e8f5d0 0%, #ffffff 100%);
+      text-align: center;
+      padding: 30px 20px 20px;
+      border-bottom: 3px solid #6ab830;
+    }
+
+    .logo-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    /* SVG Logo */
+    .logo-svg {
+      width: 260px;
+      height: auto;
+      drop-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+      filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.25));
+    }
+
+    /* For sale headline */
+    .headline-section {
+      text-align: center;
+      padding: 28px 20px 10px;
+      background: #fff;
+    }
+
+    .for-sale-title {
+      font-family: 'Paytone One', cursive;
+      font-size: 26px;
+      font-weight: 700;
+      color: #2d5a1b;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 900;
+      color: #333;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* CTA Button */
+    .btn-inquire {
+      display: inline-block;
+      background: linear-gradient(180deg, #7ecf35 0%, #5aaa1a 50%, #4a8c14 100%);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+      padding: 14px 50px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 0 #2d6e0a, 0 6px 12px rgba(0,0,0,0.2);
+      transition: all 0.15s ease;
+      margin-bottom: 6px;
+    }
+    .btn-inquire:hover {
+      background: linear-gradient(180deg, #8edf45 0%, #6aba2a 50%, #5a9c24 100%);
+      box-shadow: 0 2px 0 #2d6e0a, 0 4px 8px rgba(0,0,0,0.2);
+      transform: translateY(2px);
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 2px solid #e0e0d0;
+      margin: 24px 30px;
+    }
+
+    /* Value proposition */
+    .value-section {
+      text-align: center;
+      padding: 10px 20px 20px;
+    }
+
+    .value-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .value-desc {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 24px;
+    }
+    .value-desc strong { color: #2d5a1b; }
+
+    /* Icons row */
+    .icons-row {
+      display: flex;
+      justify-content: stretch;
+      align-items: stretch;
+      margin: 0 0 10px;
+      border-top: 2px solid #c8bfa0;
+      border-bottom: 2px solid #c8bfa0;
+    }
+
+    .icon-item {
+      flex: 1;
+      text-align: center;
+      padding: 20px 10px 18px;
+      position: relative;
+    }
+    .icon-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10%;
+      height: 80%;
+      width: 2px;
+      background: #c8bfa0;
+    }
+
+    .icon-circle {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 10px;
+      background: radial-gradient(circle at 40% 35%, #eaf7d0, #cceea0 40%, #aadd78 70%, #88cc50);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 8px rgba(90,150,30,0.2), inset 0 2px 4px rgba(255,255,255,0.5);
+      position: relative;
+    }
+    .icon-circle svg {
+      width: 38px;
+      height: 38px;
+      filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.2));
+    }
+
+    .icon-label {
+      font-size: 13px;
+      font-weight: 900;
+      color: #333;
+    }
+
+    /* Contact section */
+    .contact-section {
+      padding: 10px 30px 20px;
+    }
+
+    .contact-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 900;
+      color: #222;
+      margin-bottom: 16px;
+    }
+
+    .form-box {
+      background: linear-gradient(180deg, #ede8d8 0%, #e0d8c0 100%);
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid #c8bfa0;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: 'Lato', sans-serif;
+      background: #fff;
+      color: #555;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #6ab830;
+    }
+
+    .form-group textarea {
+      height: 90px;
+      resize: vertical;
+    }
+
+    .btn-send {
+      width: 100%;
+      background: linear-gradient(180deg, #7ecf35 0%, #5aaa1a 50%, #4a8c14 100%);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 900;
+      padding: 13px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 0 #2d6e0a, 0 6px 12px rgba(0,0,0,0.15);
+      transition: all 0.15s ease;
+      margin-top: 4px;
+    }
+    .btn-send:hover {
+      box-shadow: 0 2px 0 #2d6e0a, 0 4px 8px rgba(0,0,0,0.15);
+      transform: translateY(2px);
+    }
+  </style>
 </head>
 <body>
 
-    <header class="top-banner">
-        <img src="header.png" alt="DimeSack Logo" class="main-logo">
-    </header>
+  <!-- Top green banner with leaves -->
+  <div class="top-banner">
+    <div class="leaf-left">
+      <svg viewBox="0 0 160 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="20" cy="90" rx="55" ry="70" fill="#3a7020" opacity="0.8"/>
+        <ellipse cx="70" cy="85" rx="45" ry="60" fill="#5aaa20" opacity="0.6"/>
+        <ellipse cx="-10" cy="70" rx="50" ry="65" fill="#2a5515" opacity="0.7"/>
+        <ellipse cx="40" cy="95" rx="35" ry="50" fill="#6ab830" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="leaf-right">
+      <svg viewBox="0 0 160 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="20" cy="90" rx="55" ry="70" fill="#3a7020" opacity="0.8"/>
+        <ellipse cx="70" cy="85" rx="45" ry="60" fill="#5aaa20" opacity="0.6"/>
+        <ellipse cx="-10" cy="70" rx="50" ry="65" fill="#2a5515" opacity="0.7"/>
+        <ellipse cx="40" cy="95" rx="35" ry="50" fill="#6ab830" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
 
-    <section class="hero">
-        <h1>DimeSack.com <span>is For Sale!</span></h1>
-        <p class="subtitle">Get This Premium Domain Name!</p>
-        
-        <div class="cta-buttons">
-            <a href="#contact" class="btn btn-green">Inquire Now</a>
+  <div class="main">
+
+    <!-- Logo -->
+    <div class="logo-section">
+      <div class="logo-placeholder">
+        <span>Your Logo Here<br><small>Replace src with your image file</small></span>
+        <!-- To use your logo, replace this div with: <img src="your-logo.png" width="300" height="120" alt="DimeSack Logo"> -->
+      </div>
+    </div>
+
+    <!-- For Sale Headline -->
+    <div class="headline-section">
+      <div class="for-sale-title">DimeSack.com is For Sale!</div>
+      <div class="subtitle">Get This Premium Domain Name!</div>
+      <a href="mailto:jessecarruthers1@gmail.com" class="btn-inquire">Inquire Now</a>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Value Proposition -->
+    <div class="value-section">
+      <div class="value-title">A High-Value Domain With Huge Potential!</div>
+      <div class="value-desc">Perfect for <strong>Cannabis, CBD, or Lifestyle Brands</strong></div>
+
+      <div class="icons-row">
+        <!-- Shopping cart icon -->
+        <div class="icon-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 8h4l6 22h20l4-14H14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="20" cy="36" r="2.5" fill="#fff"/>
+              <circle cx="34" cy="36" r="2.5" fill="#fff"/>
+              <path d="M14 14h26l-3 12H17L14 14Z" fill="rgba(255,255,255,0.2)" stroke="#fff" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="icon-label">Great Brand Name!</div>
         </div>
-    </section>
 
-    <section class="value-prop">
-        <h2>A High-Value Domain With Huge Potential!</h2>
-        <p>Perfect for Cannabis, CBD, or Lifestyle Brands</p>
-        
-        <div class="features">
-            <div class="feature-item">
-                <img src="images/icon-cart.png" alt="Shopping Cart">
-                <p>Great Brand Name!</p>
-            </div>
-            <div class="feature-item">
-                <img src="images/icon-globe.png" alt="Globe" width="140px" height="110px">
-                <p>Memorable & Catchy</p>
-            </div>
-            <div class="feature-item">
-                <img src="images/icon-money.png" alt="Money Bag">
-                <p>Invest in the Future</p>
-            </div>
+        <!-- Globe icon -->
+        <div class="icon-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="16" stroke="#fff" stroke-width="2.5" fill="none"/>
+              <ellipse cx="24" cy="24" rx="7" ry="16" stroke="#fff" stroke-width="2" fill="none"/>
+              <line x1="8" y1="24" x2="40" y2="24" stroke="#fff" stroke-width="2"/>
+              <line x1="10" y1="16" x2="38" y2="16" stroke="#fff" stroke-width="1.5"/>
+              <line x1="10" y1="32" x2="38" y2="32" stroke="#fff" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="icon-label">Memorable &amp; Catchy</div>
         </div>
-    </section>
 
+        <!-- Money bag icon -->
+        <div class="icon-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 8 C18 8 14 10 14 14 C14 16 15 17 16 18 C10 20 8 26 8 30 C8 38 15 42 24 42 C33 42 40 38 40 30 C40 26 38 20 32 18 C33 17 34 16 34 14 C34 10 30 8 24 8Z" fill="rgba(255,255,255,0.25)" stroke="#fff" stroke-width="2"/>
+              <path d="M20 14 L28 14" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+              <text x="24" y="34" text-anchor="middle" font-size="16" font-weight="900" fill="#fff" font-family="Arial">$</text>
+            </svg>
+          </div>
+          <div class="icon-label">Invest in the Future</div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <!-- Bottom green banner -->
+  <div class="bottom-banner"></div>
+
+</body>
     
 
     <footer class="bottom-border"></footer>
